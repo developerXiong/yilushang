@@ -7,6 +7,7 @@
     <link rel='stylesheet prefetch' href='css/slick.min.css'>
     <link rel='stylesheet prefetch' href='css/slick-theme.min.css'>
     <style>
+        body{opacity: 0; transition: opacity 0.2s;}body.active{opacity: 1}
         body,html{
             font-size: 62.5%;
         }
@@ -161,35 +162,53 @@
             content:''
         }
         .slick-next{
-            right: 30px;
+            right: 0;
             z-index: 10;
         }
         .slick-prev{
-            left:30px;
+            left:0;
             z-index: 10;
         }
         .slick-prev:hover{
-            background: url("images/prev.png") no-repeat;
+            background: rgba(0,0,0,.4);
         }
         .slick-next:hover{
-            background: url("images/next.png") no-repeat;
+            background: rgba(0,0,0,.4);
         }
         .slick-prev:focus{
-            background: url("images/prev.png") no-repeat;
+            background: rgba(0,0,0,.4);
         }
         .slick-next:focus{
-            background: url("images/next.png") no-repeat;
+            background: rgba(0,0,0,.4);
         }
         .slick-next, .slick-prev{
-            width: 18px;
-            height: 25px;
-            background-size: cover;
+            width: 30px;
+            height: 60px;
+            background: rgba(0,0,0,.4);
+            display: -webkit-flex;
+            display: flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            align-items: center;
+            justify-content: center;
         }
         .slick-prev{
-            background: url("images/prev.png") no-repeat;
+            background: rgba(0,0,0,.4);
         }
         .slick-next{
-            background: url("images/next.png") no-repeat;
+            background: rgba(0,0,0,.4);
+        }
+        .slick-arrow .arrow-span{
+            width: 18px;
+            height: 25px;
+            display: block;
+            background-size: cover;
+        }
+        .slick-prev .arrow-span{
+            background: url("images/prevW.png");
+        }
+        .slick-next .arrow-span{
+            background: url("images/nextW.png");
         }
     </style>
     <!--[if IE]>
@@ -233,16 +252,20 @@
             <div class="slideshow">
                 <div class="slider">
                     <div class="item">
-                        <img src="images/1.jpg"/>
+                        <img src="images/yunping1.jpg"/>
                     </div>
                     <div class="item">
-                        <img src="images/2.jpg"/>
+                        <img src="images/yunping2.jpg"/>
+                    </div>
+
+                    <div class="item">
+                        <img src="images/yunping4.jpg"/>
                     </div>
                     <div class="item">
-                        <img src="images/3.jpg"/>
+                        <img src="images/yunping5.jpg"/>
                     </div>
                     <div class="item">
-                        <img src="images/4.jpg"/>
+                        <img src="images/yunping6.jpg"/>
                     </div>
                 </div>
             </div>
@@ -253,6 +276,7 @@
 <script type="text/javascript" src='js/jquery.easing.min.js'></script>
 <script type="text/javascript" src='js/slick.min.js'></script>
 <script>
+    $('body').addClass('active')
     $('.slider').slick({
         autoplay: true,
         autoplaySpeed: 2000,
@@ -265,6 +289,10 @@
         cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
         touchThreshold: 100
     })
+
+
+
+    $('.slick-arrow').append('<span class="arrow-span"></span>')
 
 </script>
 
